@@ -336,8 +336,7 @@ void voter_wait_for_evm(Booth *booth, Voter *voter)
 void voter_in_slot(Booth *booth, Voter *voter) // this is where voting will happen
 {
     Evm *evm = voter->evm_ref;
-    highlight_yellow_ln(booth_id(booth->id) + voter_id(voter->id) + " has reached " + evm_id(evm->id) + " slot");
-    pthread_mutex_lock(&(evm->evm_mutex));
+    highlight_yellow_ln(booth_id(booth->id) + voter_id(voter->id) + " has reached " + evm_id(evm->id) + "at slot");
     evm->vote_tokens++;
     pthread_cond_signal(&evm->evm_condition);
     pthread_cond_wait(&(evm->voter_condition), &(evm->evm_mutex));
@@ -367,6 +366,8 @@ void *voter_thread(void *arg)
     Booth *booth = voter->back_ref;
     highlight_yellow_ln(booth_id(booth->id) + voter_id(voter->id) + " Voter arrived outside booth");
     voter_wait_for_evm(booth, voter);
+    highlight_yellow_ln(booth_id(booth->id) + voter_id(voter->id) + " Voter waiting outside evm slot");
+    pthread_mutex_lock(&(voter->evm_ref->evm_mutex));
     voter_in_slot(booth, voter);
     highlight_yellow_ln(booth_id(booth->id) + voter_id(voter->id) + " Voter has left booth");
 }
