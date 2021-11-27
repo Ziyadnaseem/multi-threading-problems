@@ -69,7 +69,7 @@
 ### To execute mergesort using two threads for every subarray
 
 - Compile the code file fixed_thread_mergesort.cpp
-    >g++ fixed_thread_mergesort.cpp
+    >g++ thread_mergesort.cpp
 
 - Run the code
     >./a.out
@@ -77,7 +77,7 @@
 ### To execute mergesort using fixed number of threads
 
 - Compile the code file thread_mergesort.cpp
-    >g++ thread_mergesort.cpp
+    >g++ fixed_thread_mergesort.cpp
 
 - Run the code
     >./a.out
