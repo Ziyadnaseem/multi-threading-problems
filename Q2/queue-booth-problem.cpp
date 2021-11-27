@@ -418,7 +418,7 @@ void *evm_thread(void *arg)
         while (true)
         {
             pthread_mutex_lock(&(evm->evm_mutex));
-            highlight_green_ln(booth_id(booth->id) + evm_id(evm->id) + " votes casted: " + to_string(evm->vote_tokens));
+            highlight_green_ln(booth_id(booth->id) + evm_id(evm->id) + " votes castings left: " + to_string(evm->vote_tokens));
             if (evm->vote_tokens == 0)
             {
                 pthread_cond_broadcast(&(evm->voter_condition));
