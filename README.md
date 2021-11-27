@@ -37,5 +37,6 @@ Results are displayed as logs of how each task is being performed.
     >./a.out
 
 Change the size of array in the code at #define size for executing the code for different size.
+
 To print the array at any instance , uncomment the corresponding comment-lines in the code
 (eg. For printing the merging step by step)
