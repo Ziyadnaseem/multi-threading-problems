@@ -16,3 +16,25 @@ A collection of problems solved using multi-threading
     3. Number of Voters initially assigned to enter the Booth.
 ### Results:
 Results are displayed as logs of how each task is being performed.
+
+
+## Q3: Concurrent Merge Sort
+
+### To execute multiprocess mergesort
+- Compile the code file process_mergesort.cpp 
+    >g++ process_mergesort.cpp
+- Run the code
+    >./a.out
+### To execute mergesort using two threads for every subarray
+- Compile the code file fixed_thread_mergesort.cpp 
+    >g++ fixed_thread_mergesort.cpp
+- Run the code
+    >./a.out
+### To execute mergesort using fixed number of threads
+- Compile the code file thread_mergesort.cpp 
+    >g++ thread_mergesort.cpp
+- Run the code
+    >./a.out
+
+To print the array at any instance , uncomment the corresponding comment-lines in the code
+(eg. For printing the merging step by step)
