@@ -7,3 +7,12 @@ A collection of problems solved using multi-threading
 ![Entity Diagram](/snapshots/evm_entity_diagram.png)
 ### System Diagram
 ![Thread Diagram](/snapshots/evm_thread_diagram.png)
+
+### Instructions:
+1. First input the number of Booths.
+2. For each Booth input:
+    1. Number of Evms per Booth.
+    2. Maximum number of free slots in a Evm per Booth.
+    3. Number of Voters initially assigned to enter the Booth.
+### Results:
+Results are displayed as logs of how each task is being performed.
