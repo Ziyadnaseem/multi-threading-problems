@@ -4,7 +4,7 @@
 #include <stdlib.h>
 using namespace std;
 //change the size of array
-#define size 1000
+#define size 20
 //array for sorting using thread
 long long arr[size];
 
@@ -135,7 +135,7 @@ int main()
     cout << "Program for merge sort using threads\n";
 
     //Filling random values in array to make it Unsorted
-    
+    if(size<1){cout<<"Not a Valid input \n";return 0;}
     srand(time(NULL));
     for (long long i = 0; i < size; i++)
     {
@@ -143,8 +143,8 @@ int main()
         arr_p[i] = arr[i];
     }
     //uncomment the code to print Unsorted array
-    //cout << "Unsorted Array is\n";
-    // print_array(0,size,arr);
+    cout << "Unsorted Array is\n";
+    print_array(0,size,arr);
 
     pthread_t t;
     struct info arr_info = {0, size - 1};
@@ -166,11 +166,11 @@ int main()
     aftersort = clock();
 
     //uncomment to check the sorted array
-    // issorted(arr);
+     issorted(arr);
 
     //uncomment to see the sorted array
-    /*cout << "Sorted Array is\n";
-     print_array(0,size,arr);*/
+    cout << "Sorted Array is\n";
+     print_array(0,size,arr);
 
     clock_t beforesort1;
     clock_t aftersort1;
@@ -189,7 +189,7 @@ int main()
     aftersort1 = clock();
 
     //uncomment to check the sorted array
-    // issorted(arr_p);
+     issorted(arr_p);
 
     //uncomment the code to print sorted array
     /*cout<<"Sorted Array\n";

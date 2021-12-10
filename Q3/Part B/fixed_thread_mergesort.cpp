@@ -4,7 +4,7 @@
 #include <stdlib.h>
 using namespace std;
 //change this for diiferent size
-#define size 10000
+#define size 20
 
 //array for thread
 long long arr[size];
@@ -96,10 +96,10 @@ void *merge_sort(void *param)
         helper_merge_sort(arr, mid + 1, end);
         merging(start, end, mid, arr);
         //uncomment the code to see the sorting of sub arrays
-        /*cout << "\n"
+        cout << "\n"
              << start << " " << mid << " " << end;
         cout << endl;
-        print_array(start, end + 1, arr);*/
+        print_array(start, end + 1, arr);
     }
     return NULL;
 }
@@ -118,8 +118,8 @@ void merge_local_arrays(long long level, long long thread_cnt, long long *arr)
         merging(start, end, mid, arr);
 
         //uncomment the below line to see the merging step by step
-        /*cout<<"\n"<<start<<" "<<mid<<" "<<end<<endl;
-        print_array(start,end+1,arr);*/
+        // cout<<"\n"<<start<<" "<<mid<<" "<<end<<endl;
+        // print_array(start,end+1,arr);
     }
     merge_local_arrays(level * 2, thread_cnt / 2, arr);
 }
@@ -157,7 +157,9 @@ void issorted(long long arr[])
 int main()
 {
     cout << "Program for merge sort using threads\n";
-
+    cout << "Enter number of threads you want to create\n";
+    cin >> total_thread;
+    if(total_thread<1 || size<1){cout<<"Not a Valid input \n";return 0;}
     //Filling random values in array to make it Unsorted
     
     srand(time(NULL));
@@ -167,11 +169,9 @@ int main()
         arr_p[i] = arr[i];
     }
     //uncomment below line for printing unsorted array
-    //cout << "Unsorted Array is\n";
-    //print_array(0,size,arr);
+    cout << "Unsorted Array is\n";
+    print_array(0,size,arr);
 
-    cout << "Enter number of threads you want to create\n";
-    cin >> total_thread;
 
     //assigning each thread equal number of array to sort
     arr_div = size / total_thread;
@@ -213,11 +213,11 @@ int main()
     aftersort = clock();
 
     //uncomment to print sorted array
-    /*cout<<"\nSorted array is \n";
-    print_array(0,size,arr);*/
+    cout<<"\nSorted array is \n";
+    print_array(0,size,arr);
     
     //uncomment to check if array is sorted
-    //issorted(arr);
+    issorted(arr);
 
     clock_t beforesort1;
     clock_t aftersort1;
@@ -238,7 +238,7 @@ int main()
     print_array(0,size,arr_p);*/
 
     //uncomment to check if array is sorted
-    // issorted(arr_p);
+     issorted(arr_p);
 
     //printing execution time
     cout << "\nTime elasped with thread: " << (aftersort - beforesort) / (double)CLOCKS_PER_SEC << endl;

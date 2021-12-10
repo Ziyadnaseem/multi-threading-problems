@@ -476,8 +476,18 @@ void driver()
         print_ln("Booth:" + to_string(i));
         print_ln("Enter number of EVMS ?");
         cin >> evms[i];
+        if (evms[i] == 0)
+        {
+            highlight_red_ln("Invalid input\nExiting...");
+            exit(0);
+        }
         print_ln("Enter maximum number of slots per EVM ?");
         cin >> slots[i];
+        if (slots[i] == 0)
+        {
+            highlight_red_ln("Invalid input\nExiting...");
+            exit(0);
+        }
         print_ln("Enter voters queued to this booth ?");
         cin >> voters[i];
         line();
